@@ -1,0 +1,16 @@
+.header {
+    font-family: "Playfair Display", serif;
+    background-color: var(--color-black);
+    height: 90vh;
+    width: 100%;
+    color: var(--color-white);
+    position: relative;
+    text-align: center;
+
+    &__title {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translate(-50%,0);
+    }
+}
