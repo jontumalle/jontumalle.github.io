@@ -1,0 +1,25 @@
+@keyframes shooting-star {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    
+    5% {
+        opacity: 0.9;
+    }
+
+    25% {
+        opacity: 0;
+        transform: translate(-200px, calc( (var(--sky-h)/2) + var(--shooting-star-h) ));
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(0,0);
+    }
+}
+
+@keyframes twinkle {
+    from { opacity: .3; }
+    to { opacity: 1; }
+}

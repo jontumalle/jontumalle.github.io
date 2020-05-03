@@ -1,16 +1,73 @@
 .header {
-    font-family: "Playfair Display", serif;
-    background-color: var(--color-black);
-    height: 90vh;
-    width: 100%;
-    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
     position: relative;
-    text-align: center;
+    background-color: var(--color-black);
+
+    // CONTAINER FOR NIGHT SKY
+    &__sky {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: var(--sky-h);
+        overflow: hidden;
+
+        // 4 LAYERS OF STARS
+        &-stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-size: auto 100%;
+            background-position: 50% 0;
+            width: 200vw;
+            height: 33vh;
+
+            &--1 {
+                background-image: url(../img/stars-1.png);
+                animation: twinkle 10s ease-in -5s infinite alternate;
+            }
+
+            &--2 {
+                background-image: url(../img/stars-2.png);
+                animation: twinkle 3s ease-in -4s infinite alternate;
+            }
+
+            &--3 {
+                background-image: url(../img/stars-3.png);
+                animation: twinkle 2s ease-in -1s infinite alternate;
+            }
+
+            &--4 {
+                background-image: url(../img/stars-4.png);
+                animation: twinkle 5.5s ease-in -500ms infinite alternate;
+
+            }
+        }
+
+        // SHOOTING STAR
+        &::before {
+            content: ' ';
+            height: var(--shooting-star-h);
+            width: var(--shooting-star-w);
+            position: absolute;
+            top: calc(-1*var(--shooting-star-h));
+            left: 63vw;
+            
+            background-image: url(../img/shooting-star.png);
+            background-size: var(--shooting-star-w) var(--shooting-star-h);
+            
+            animation: shooting-star 1.8s linear 3s 4;
+            z-index: 100;
+        }
+
+    }
 
     &__title {
-        position: absolute;
-        bottom: 1rem;
-        left: 50%;
-        transform: translate(-50%,0);
+        padding: 2rem;
+        text-align: center;
     }
 }
