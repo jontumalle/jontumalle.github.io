@@ -9,10 +9,13 @@
 
         <!--<link rel="apple-touch-icon" href="icon.png">-->
         <!--------FONTS--------->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat">
         <!--------MAINSTYLE----->
         <link rel="stylesheet" href="css/style.css">
+
+        <!--------ICONS--------->
+        <script src="https://kit.fontawesome.com/8bfc0dc0e9.js" crossorigin="anonymous"></script>
 
     </head>
     <body>
@@ -25,43 +28,86 @@
                 <div class="header__sky-stars header__sky-stars--3">&nbsp;</div>
                 <div class="header__sky-stars header__sky-stars--4">&nbsp;</div>
             </div>
-            <div class="header__title">
-                <h1 class="header__name">Jonathan Tumalle</h1>
-                <h2 class="header__titles">Aerospace Engineer / Software Developer</h2>
+            <div class="header__content">
+                <div class="header__text">
+                    <h1 class="header__name">Jonathan Tumalle</h1>
+                    <h2 class="header__titles">Aerospace Engineer / Software Developer</h2>
+                    <div class="header__link-container">
+                        <a href="https://www.linkedin.com/in/jonathan-tumalle/" class="header__link"><span><i class="fab fa-linkedin"></i></span> <u>LinkedIn</u></a>
+                        <a href="https://github.com/jontumalle" class="header__link"><span><i class="fab fa-github"></i></span> <u>GitHub</u></a>
+                    </div>
+                    <div class="header__scroll">
+                        <a href="#about" class="header__link"><span><i class="fas fa-chevron-down"></i></span>Scroll down</a>
+                    </div>
+                </div>
             </div>
         </header>
 
         <main>
-            <section class="section-about">
-                <h3 class="heading-section">About me TODO</h3>
-                <p class="section-about__paragraph">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Massa tincidunt dui ut ornare lectus sit amet est placerat. Ut venenatis tellus in metus vulputate eu scelerisque felis. 
-                    Egestas sed sed risus pretium. Vitae semper quis lectus nulla at volutpat diam ut venenatis. Turpis egestas maecenas pharetra convallis. 
-                    Nulla aliquet enim tortor at auctor urna nunc id. Tincidunt eget nullam non nisi est. Risus nec feugiat in fermentum posuere urna. 
-                    Vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt. Adipiscing tristique risus nec feugiat in fermentum posuere. 
-                    Montes nascetur ridiculus mus mauris vitae ultricies. Nullam vehicula ipsum a arcu cursus. Nibh sed pulvinar proin gravida hendrerit. 
-                    Tellus in metus vulputate eu.
-                </p>
+            <section class="section-about" id="about">
+                <h2 class="section-heading">About</h2>
+                
+
+                <!--
+                <div class="section-about-hidden">
+                    <div class="about-me">
+                        <h3 class="about-me__heading section-heading u-margin-bottom-sm">About me</h3>
+                        <p class="about-me__text u-margin-bottom-md">
+                            Welcome! I am a full-stack engineer who has been fortunate enough to deliver software solutions for fascinating problems in the Aerospace industry. I love how programming allows me to quickly synthesize different technologies like puzzle pieces to bring my ideas to life.
+                        </p>
+                    </div>
+    
+                    <div class="work-experience">
+                        <h4 class="work-experience__heading section-heading u-margin-bottom-sm">Work Experience</h4>
+                        <ul class="timeline">
+                            <li class="timeline__item">
+                                <div class="timeline__date">December 2019</div>
+                                <div class="timeline__event">
+                                    <h5 class="timeline__event-company">Graduation</h5>
+                                    <p class="timeline__event-title">B.S. Aerospace Engineering</p>
+                                </div>
+                            </li>
+                            <li class="timeline__item">
+                                <div class="timeline__date">Summer 2019</div>
+                                <div class="timeline__event">
+                                    <h5 class="timeline__event-company">SpaceX</h5>
+                                    <p class="timeline__event-title">Build Reliability Intern</p>
+                                </div>
+                            </li>
+                            <li class="timeline__item">
+                                <div class="timeline__date">Summer 2018</div>
+                                <div class="timeline__event">
+                                    <h5 class="timeline__event-company">Northrop Grumman</h5>
+                                    <p class="timeline__event-title">Software Engineering Intern</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <div class="skills">
+                        <h4 class="skills__heading section-heading u-margin-bottom-sm">Skills</h4>
+                        <ul class="skills__list">
+                            <li class="skills__item">Java</li>
+                            <li class="skills__item">JavaScript</li>
+                            <li class="skills__item">Python</li>
+                            <li class="skills__item">HTML/CSS/Sass</li>
+                            <li class="skills__item">SQL</li>
+                        </ul>
+                    </div>
+                </div>
+
+                -->
+                
             </section>
-            <section class="section-skills">
-                <h3 class="heading-section">Skills TODO</h3>
-                <ul class="section-skills__list">
-                    <li class="section-skills__item">skill 00</li>
-                    <li class="section-skills__item">skill 01</li>
-                    <li class="section-skills__item">skill 02</li>
-                    <li class="section-skills__item">skill 03</li>
-                    <li class="section-skills__item">skill 04</li>
-                </ul>
-            </section>
+
             <section class="section-projects">
-                <h3 class="heading-section">Projects TODO</h3>
+                <h3 class="section-heading">Projects</h3>
                 <div class="section-projects__project-container">
 
                 </div>
             </section>
             <section class="section-contact">
-                <h3 class="heading-section">Contact me TODO</h3>
+                <h3 class="section-heading">Contact me</h3>
                 <div class="section-contact__info">
                     <p>For a copy of my resume, contact me through any of the methods below:</p>
                 </div>

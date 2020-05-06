@@ -1,8 +1,13 @@
-@import "abstracts/animations";
 @import "abstracts/variables";
+@import "abstracts/animations";
+@import "abstracts/utilities";
+@import "abstracts/mixins";
 
 @import "base/base";
 @import "base/typography";
+
+@import "components/skills";
+@import "components/timeline";
 
 @import "layout/header";
 

@@ -1,3 +1,12 @@
+:root {
+  --color-black: rgb(22, 22, 22);
+  --color-white: #F0F2F0;
+  --color-primary: #F0F2F0;
+  --color-secondary: #000C40;
+  --sky-h: 33vh;
+  --shooting-star-w: 7.2rem;
+  --shooting-star-h: 5rem; }
+
 @keyframes shooting-star {
   0% {
     transform: translate(0, 0);
@@ -17,13 +26,36 @@
   to {
     opacity: 1; } }
 
-:root {
-  --color-black: rgb(22, 22, 22);
-  --color-white: #fff;
-  --color-primary: rgb(14, 9, 100);
-  --sky-h: 33vh;
-  --shooting-star-w: 7.2rem;
-  --shooting-star-h: 5rem; }
+@keyframes scroll-indicator {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 0.5; } }
+
+@keyframes scroll-down {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0); }
+  50% {
+    opacity: 1; }
+  75% {
+    opacity: 0;
+    transform: translate(-50%, 50%); }
+  85% {
+    opacity: 0;
+    transform: translate(-50%, 60%); }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 75%); } }
+
+.u-center-text {
+  text-align: center; }
+
+.u-margin-bottom-sm {
+  margin-bottom: 1.5rem; }
+
+.u-margin-bottom-md {
+  margin-bottom: 3rem; }
 
 *,
 *::after,
@@ -38,28 +70,62 @@ body {
   box-sizing: border-box; }
 
 body {
-  font-family: "Public Sans", sans-serif;
+  font-family: "Montserrat", serif;
   font-weight: 400;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   line-height: 1.7;
-  color: var(--color-black); }
-
-.header {
-  font-family: "Playfair Display", serif;
   color: var(--color-white); }
-  .header__name {
-    font-size: 2.5rem; }
-  .header__titles {
-    font-size: 1.5rem; }
 
-.header {
+.section-heading {
+  font-family: "Fira Code", monospace;
+  font-size: 3rem;
+  color: var(--color-black);
+  text-transform: uppercase;
+  position: absolute;
+  left: 0;
+  bottom: 2rem;
+  padding: 0 4rem 0 2rem;
+  background-image: linear-gradient(100deg, rgba(240, 242, 240, 0.8) 0%, rgba(240, 242, 240, 0.8) 90%, transparent 90%); }
+
+.skills__list {
+  width: 100%;
+  list-style: none; }
+
+.timeline {
+  height: 100%;
+  width: 100%;
+  list-style: none;
+  overflow: hidden;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 100vw;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace; }
+  .timeline__item {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: auto; }
+  .timeline__date {
+    grid-column: 1 / 2;
+    font-size: 1rem;
+    text-align: right;
+    padding-right: 1.4rem; }
+  .timeline__event {
+    grid-column: 2 / 3;
+    padding-left: 1.4rem;
+    padding-bottom: 3rem;
+    border-left: 2px solid var(--color-primary); }
+    .timeline__event-company {
+      font-size: 1.4rem; }
+    .timeline__event-title {
+      font-size: 1.2rem; }
+
+.header {
   height: 100vh;
   position: relative;
-  background-color: var(--color-black); }
+  font-family: "Fira Code", monospace;
+  color: var(--color-white); }
   .header__sky {
     position: absolute;
     top: 0;
@@ -98,6 +164,88 @@ body {
       background-size: var(--shooting-star-w) var(--shooting-star-h);
       animation: shooting-star 1.8s linear 3s 4;
       z-index: 100; }
-  .header__title {
+  .header__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    width: 100%;
     padding: 2rem;
+    color: var(--color-white); }
+  .header__name {
+    font-size: 3.2rem;
+    text-transform: uppercase; }
+  .header__titles {
+    font-size: 2rem;
+    padding-bottom: 1rem; }
+  .header__link, .header__link:link, .header__link:visited {
+    color: var(--color-white);
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    font-size: 1.4rem;
+    padding-bottom: 1rem;
+    border: none;
+    cursor: pointer; }
+  .header__link:not(:last-child) {
+    padding-right: 2rem; }
+  .header__scroll {
+    position: relative;
+    align-self: center;
     text-align: center; }
+    .header__scroll a, .header__scroll a:link, .header__scroll a:visited {
+      color: var(--color-white);
+      text-transform: uppercase;
+      text-decoration: none;
+      font-size: 1rem;
+      opacity: 0;
+      border: none;
+      cursor: pointer;
+      animation: scroll-indicator 3s linear 3s normal forwards; }
+    .header__scroll a span {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      color: var(--color-white);
+      opacity: 0;
+      font-size: 2rem;
+      animation: scroll-down 5s linear 3s infinite; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory; }
+
+body {
+  background-color: var(--color-black); }
+
+.header {
+  scroll-snap-align: start; }
+
+.section-about {
+  scroll-snap-align: start;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  padding: 2rem;
+  box-sizing: border-box; }
+
+.section-projects {
+  scroll-snap-align: start;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  padding: 2rem;
+  box-sizing: border-box; }
+
+.section-contact {
+  scroll-snap-align: start;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  padding: 2rem;
+  box-sizing: border-box; }

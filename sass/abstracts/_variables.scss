@@ -1,8 +1,10 @@
 :root {
     // --------COLORS--------
     --color-black: rgb(22, 22, 22);
-    --color-white: #fff;
-    --color-primary: rgb(14, 9, 100);
+    --color-white: #F0F2F0;
+    --color-primary: #F0F2F0;
+    --color-secondary: #000C40;
+
 
     // --------DIMENSIONS--------
     // Night Sky
@@ -10,3 +12,6 @@
     --shooting-star-w: 7.2rem;
     --shooting-star-h: 5rem;
 }
+
+$color-white: #F0F2F0;
+$color-black: rgb(22, 22, 22);

@@ -23,3 +23,36 @@
     from { opacity: .3; }
     to { opacity: 1; }
 }
+
+// Scroll text animation
+@keyframes scroll-indicator {
+    from { opacity: 0; }
+    to { opacity: 0.5; }
+}
+
+// Scroll chevron animation
+@keyframes scroll-down {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0;
+        transform: translate(-50%, 50%);
+    }
+
+    85% {
+        opacity: 0;
+        transform: translate(-50%, 60%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, 75%);
+    }
+}

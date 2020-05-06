@@ -1,0 +1,25 @@
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+body {
+    //background-image: linear-gradient(to bottom, #0f2027, #203a43);
+    background-color: var(--color-black);
+}
+
+.header {
+    scroll-snap-align: start;
+}
+
+.section-about {
+    @include create-section;
+}
+
+.section-projects {
+    @include create-section;
+}
+
+.section-contact {
+    @include create-section;
+}
