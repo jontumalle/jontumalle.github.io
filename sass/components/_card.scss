@@ -1,28 +1,15 @@
 // Create variables to define card
+$color-sun-yellow: #F9D71C;
+$color-night: #000;
+$color-day: #fff;
+
 :root {
     --card-padding: 2.4rem;
     --card-height: 34rem;
+    --card-width: 28rem;
     --card-border-radius: 6px;
-    --card-skeleton: linear-gradient(lightgrey var(--card-height), transparent 0);
-    
-    --title-height: 3.2rem;
-    --title-width: 20rem;
-    --title-position: var(--card-padding) 18rem;
-    --title-skeleton: linear-gradient(white var(--title-height), transparent 0);
 
-    --desc-line-height: 1.6rem;
-    --desc-line-skeleton: linear-gradient(white var(--desc-line-height), transparent 0);
-    --desc-line-1-width: 23rem;
-    --desc-line-1-position: var(--card-padding) 24.2rem;
-    --desc-line-2-width: 18rem;
-    --desc-line-2-position: var(--card-padding) 26.5rem;
-    
-    --footer-height: 4rem;
-    --footer-position: 0 calc(var(--card-height) - var(--footer-height));
-    --footer-skeleton: linear-gradient(white var(--footer-height), transparent 0);
-
-    --blur-width: 20rem;
-    --blur-size: var(--blur-width) calc(var(--card-height) - var(--footer-height));
+    --sun-diameter: 10rem;
 }
 
 .projects {
@@ -30,62 +17,86 @@
     justify-content: center;
 }
 
-.project-card {
-    width: 28rem;
+
+.project-loading {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    width: var(--card-width);
     height: var(--card-height);
+    
+    border-radius: var(--card-border-radius);
+    box-shadow: 0 1rem 4.5rem 2rem rgba($color-white, .1);
+    
+    background-color: $color-day;
+    animation: nightToDay 8s linear infinite forwards;
 
-    &:empty::after {
-        content:'';
-        display: block;
-        width: 100%;
-        height: 100%;
-        border-radius: var(--card-border-radius);
-        box-shadow: 0 10px 45px rgba($color-white, .1);
-        
-        background-image:
-            linear-gradient(
-                90deg,
-                rgba(lightgrey, 0) 0%,
-                rgba(lightgrey, .8) 50%,
-                rgba(lightgrey, 0) 100%
-            ),                              //Animation blur
-            var(--title-skeleton),          //Title
-            var(--desc-line-skeleton),      //Description 1
-            var(--desc-line-skeleton),      //Description 2
-            var(--footer-skeleton),         //Footer
-            var(--card-skeleton);            //Card background
-        
+    &__sun {
 
-        background-size: 
-            var(--blur-size),
-            var(--title-width) var(--title-height),
-            var(--desc-line-1-width) var(--desc-line-height),
-            var(--desc-line-2-width) var(--desc-line-height),
-            100% var(--footer-height),
-            100% 100%; // Card is 100% of dimensions
+        position: absolute;
+        top: calc( var(--card-height)/2 - var(--sun-diameter)/2 );
+        left: calc( var(--card-width)/2 - var(--sun-diameter)/2 );
 
-        background-position:
-            -150% 0%,                       //Animation
-            var(--title-position),          //Title
-            var(--desc-line-1-position),    //Desc1
-            var(--desc-line-2-position),    //Desc2
-            var(--footer-position),         //Footer
-            0 0;                            //Card
+        width: var(--sun-diameter);
+        height: var(--sun-diameter);
 
-        background-repeat: no-repeat;
-        animation: loading 1.5s infinite;
-    }
+        border-radius: 50%;
+        background-color: $color-sun-yellow;
 
-    @keyframes loading {
-        to {
-            background-position:
-                350% 0,        
-                var(--title-position),  
-                var(--desc-line-1-position),
-                var(--desc-line-2-position),
-                var(--footer-position),
-                0 0;
+        &:after {
+            content:'';
+            position: absolute;
+            left: 15rem;
+
+            width: var(--sun-diameter);
+            height: var(--sun-diameter);
+
+            border-radius: 50%;
+            background-color: $color-day;
+
+            transform: scale(0.95);
+
+            z-index: 100;
+
+            animation:
+                nightToDay 8s linear infinite forwards,
+                eclipse 8s linear infinite forwards;
         }
     }
+}
 
+.project-card {
+    display: none;
+    width: 28rem;
+    height: var(--card-height);
+}
+
+@keyframes nightToDay {
+    0% {
+        background-color: $color-day;
+    }
+    30%,50% {
+        background-color: $color-night;
+    }
+    80% {
+        background-color: $color-day;
+    }
+    100% {
+        background-color: $color-day;
+    }
+}
+
+@keyframes eclipse {
+    0% {
+        left: 15rem;
+    }
+    30%,50% {
+        left: 0;
+    }
+    80% {
+        left: -15rem;
+    }
+    100% {
+        left: -15rem;
+    }
 }

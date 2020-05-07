@@ -129,8 +129,7 @@ body {
     max-height: 30vh; }
 
 .timeline {
-  position: relative;
-  overflow-y: scroll; }
+  position: relative; }
   .timeline__event {
     display: grid;
     grid-template-columns: 25% 75%;
@@ -171,50 +170,72 @@ body {
 :root {
   --card-padding: 2.4rem;
   --card-height: 34rem;
+  --card-width: 28rem;
   --card-border-radius: 6px;
-  --card-skeleton: linear-gradient(lightgrey var(--card-height), transparent 0);
-  --title-height: 3.2rem;
-  --title-width: 20rem;
-  --title-position: var(--card-padding) 18rem;
-  --title-skeleton: linear-gradient(white var(--title-height), transparent 0);
-  --desc-line-height: 1.6rem;
-  --desc-line-skeleton: linear-gradient(white var(--desc-line-height), transparent 0);
-  --desc-line-1-width: 23rem;
-  --desc-line-1-position: var(--card-padding) 24.2rem;
-  --desc-line-2-width: 18rem;
-  --desc-line-2-position: var(--card-padding) 26.5rem;
-  --footer-height: 4rem;
-  --footer-position: 0 calc(var(--card-height) - var(--footer-height));
-  --footer-skeleton: linear-gradient(white var(--footer-height), transparent 0);
-  --blur-width: 20rem;
-  --blur-size: var(--blur-width) calc(var(--card-height) - var(--footer-height)); }
+  --sun-diameter: 10rem; }
 
 .projects {
   display: flex;
   justify-content: center; }
 
+.project-loading {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: var(--card-width);
+  height: var(--card-height);
+  border-radius: var(--card-border-radius);
+  box-shadow: 0 1rem 4.5rem 2rem rgba(240, 242, 240, 0.1);
+  background-color: #fff;
+  animation: nightToDay 8s linear infinite forwards; }
+  .project-loading__sun {
+    position: absolute;
+    top: calc( var(--card-height)/2 - var(--sun-diameter)/2);
+    left: calc( var(--card-width)/2 - var(--sun-diameter)/2);
+    width: var(--sun-diameter);
+    height: var(--sun-diameter);
+    border-radius: 50%;
+    background-color: #F9D71C; }
+    .project-loading__sun:after {
+      content: '';
+      position: absolute;
+      left: 15rem;
+      width: var(--sun-diameter);
+      height: var(--sun-diameter);
+      border-radius: 50%;
+      background-color: #fff;
+      transform: scale(0.95);
+      z-index: 100;
+      animation: nightToDay 8s linear infinite forwards, eclipse 8s linear infinite forwards; }
+
 .project-card {
+  display: none;
   width: 28rem;
   height: var(--card-height); }
-  .project-card:empty::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    border-radius: var(--card-border-radius);
-    box-shadow: 0 10px 45px rgba(240, 242, 240, 0.1);
-    background-image: linear-gradient(90deg, rgba(211, 211, 211, 0) 0%, rgba(211, 211, 211, 0.8) 50%, rgba(211, 211, 211, 0) 100%), var(--title-skeleton), var(--desc-line-skeleton), var(--desc-line-skeleton), var(--footer-skeleton), var(--card-skeleton);
-    background-size: var(--blur-size), var(--title-width) var(--title-height), var(--desc-line-1-width) var(--desc-line-height), var(--desc-line-2-width) var(--desc-line-height), 100% var(--footer-height), 100% 100%;
-    background-position: -150% 0%, var(--title-position), var(--desc-line-1-position), var(--desc-line-2-position), var(--footer-position), 0 0;
-    background-repeat: no-repeat;
-    animation: loading 1.5s infinite; }
 
-@keyframes loading {
-  to {
-    background-position: 350% 0, var(--title-position), var(--desc-line-1-position), var(--desc-line-2-position), var(--footer-position), 0 0; } }
+@keyframes nightToDay {
+  0% {
+    background-color: #fff; }
+  30%, 50% {
+    background-color: #000; }
+  80% {
+    background-color: #fff; }
+  100% {
+    background-color: #fff; } }
+
+@keyframes eclipse {
+  0% {
+    left: 15rem; }
+  30%, 50% {
+    left: 0; }
+  80% {
+    left: -15rem; }
+  100% {
+    left: -15rem; } }
 
 .header {
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   position: relative;
   font-family: "Fira Code", monospace;
   color: var(--color-white); }
@@ -309,8 +330,17 @@ body {
       animation: scroll-down 5s linear 3s infinite; }
 
 html {
+  overflow-y: scroll;
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory; }
+  scroll-snap-type: y mandatory;
+  scroll-snap-type: mandatory;
+  /* Firefox */
+  -ms-scroll-snap-type: mandatory;
+  /* IE/Edge */
+  -webkit-scroll-snap-type: mandatory;
+  /* Safari */
+  -webkit-scroll-snap-destination: 0% 0%;
+  -webkit-overflow-scrolling: touch; }
 
 body {
   background-color: var(--color-black);
@@ -322,6 +352,7 @@ body {
 .section {
   scroll-snap-align: start;
   height: 100vh;
+  height: calc(var(--vh,1vh) * 100);
   width: 100%;
   position: relative;
   padding: 2rem;
