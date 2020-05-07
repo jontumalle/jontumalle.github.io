@@ -1,5 +1,6 @@
 .header {
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     position: relative;
     font-family: "Fira Code", monospace;
     color: var(--color-white);
