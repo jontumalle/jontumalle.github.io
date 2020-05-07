@@ -6,20 +6,20 @@ html {
 body {
     //background-image: linear-gradient(to bottom, #0f2027, #203a43);
     background-color: var(--color-black);
+    -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .header {
     scroll-snap-align: start;
 }
 
-.section-about {
+.section {
     @include create-section;
-}
-
-.section-projects {
-    @include create-section;
-}
-
-.section-contact {
-    @include create-section;
+    
+    &__container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }

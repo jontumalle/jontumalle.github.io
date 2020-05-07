@@ -1,41 +1,61 @@
 .timeline {
-    height: 100%;
-    width: 100%;
-    list-style: none;
-    overflow: hidden;
+    position: relative;
     overflow-y: scroll;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    font-family: 'Courier New', Courier, monospace;
-
-    &__item {
-        display: grid;
-        grid-template-columns: 25% 75%;
-        grid-template-rows: auto;
-    }
-
-    &__date {
-        grid-column: 1 / 2;
-        font-size: 1rem;
-        text-align: right;
-        padding-right: 1.4rem;
-    }
 
     &__event {
-        grid-column: 2 / 3;
-        padding-left: 1.4rem;
-        padding-bottom: 3rem;
-        border-left: 2px solid var(--color-primary);
+        // Create 2x2 event grid
+        display: grid;
+        grid-template-columns: 25% 75%;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "date name"
+            "date description";
 
-        &-company {
-            font-size: 1.4rem;
+        // Assign grid areas
+        &-date { grid-area: date; }
+        &-name { grid-area: name; }
+        &-description { grid-area: description; }
+
+        &:not(:last-child){
+            margin-bottom: 1rem;
         }
-        &-title {
-            font-size: 1.2rem;
-        }
-        
+    }
+
+    &__event-date {
+        margin-right: 2.5rem;
+        font-size: 1rem;
+        text-align: right;
+    }
+
+    &__event-name,
+    &__event-description {
+        margin-left: 2.5rem;
+        font-size: 1.2rem;
+    }
+
+    &__event-name {
+        font-weight: bolder;
+    }
+
+    &__event-description {
+        font-style: italic;
+    }
+
+    // Timeline Dashed Line
+    &::before {
+        content: ' ';
+        position: absolute;
+        top: 0;
+        left: 25%;
+
+        height: 110%;
+        width: 75%;
+
+        background-image: linear-gradient(to bottom, var(--color-white) 10%, rgba(0, 0, 0, 0) 0%);
+        background-position: left;
+        background-size: 1px 10px;
+        background-repeat: repeat-y;
+
+        z-index: -1;
     }
 }

@@ -16,6 +16,7 @@
 
         <!--------ICONS--------->
         <script src="https://kit.fontawesome.com/8bfc0dc0e9.js" crossorigin="anonymous"></script>
+        <script src="js/index.js"></script>
 
     </head>
     <body>
@@ -44,72 +45,85 @@
         </header>
 
         <main>
-            <section class="section-about" id="about">
+            <section class="section" id="about">
+
                 <h2 class="section-heading">About</h2>
-                
+                <div class="section__container">
+                    <form action="#" class="form">
+                        <div class="form__group">
+                            <input type="radio" name="radio" id="about-me" class="form__radio-input">
+                            <label for="about-me" class="form__radio-label">About me</label>
 
-                <!--
-                <div class="section-about-hidden">
-                    <div class="about-me">
-                        <h3 class="about-me__heading section-heading u-margin-bottom-sm">About me</h3>
-                        <p class="about-me__text u-margin-bottom-md">
-                            Welcome! I am a full-stack engineer who has been fortunate enough to deliver software solutions for fascinating problems in the Aerospace industry. I love how programming allows me to quickly synthesize different technologies like puzzle pieces to bring my ideas to life.
-                        </p>
-                    </div>
-    
-                    <div class="work-experience">
-                        <h4 class="work-experience__heading section-heading u-margin-bottom-sm">Work Experience</h4>
-                        <ul class="timeline">
-                            <li class="timeline__item">
-                                <div class="timeline__date">December 2019</div>
-                                <div class="timeline__event">
-                                    <h5 class="timeline__event-company">Graduation</h5>
-                                    <p class="timeline__event-title">B.S. Aerospace Engineering</p>
+                            <div class="collapsible-content">
+                                <div class="content-inner u-margin-top-sm u-margin-bottom-md">
+                                    <p class="about-me__text">
+                                        Welcome! I am a full-stack engineer who has been fortunate enough to deliver software solutions for fascinating problems in the Aerospace industry.
+                                    </p>
                                 </div>
-                            </li>
-                            <li class="timeline__item">
-                                <div class="timeline__date">Summer 2019</div>
-                                <div class="timeline__event">
-                                    <h5 class="timeline__event-company">SpaceX</h5>
-                                    <p class="timeline__event-title">Build Reliability Intern</p>
-                                </div>
-                            </li>
-                            <li class="timeline__item">
-                                <div class="timeline__date">Summer 2018</div>
-                                <div class="timeline__event">
-                                    <h5 class="timeline__event-company">Northrop Grumman</h5>
-                                    <p class="timeline__event-title">Software Engineering Intern</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-    
-                    <div class="skills">
-                        <h4 class="skills__heading section-heading u-margin-bottom-sm">Skills</h4>
-                        <ul class="skills__list">
-                            <li class="skills__item">Java</li>
-                            <li class="skills__item">JavaScript</li>
-                            <li class="skills__item">Python</li>
-                            <li class="skills__item">HTML/CSS/Sass</li>
-                            <li class="skills__item">SQL</li>
-                        </ul>
-                    </div>
-                </div>
+                            </div>
+                        </div>
+                        <div class="form__group">
+                            <input type="radio" name="radio" id="work-experience" class="form__radio-input">
+                            <label for="work-experience" class="form__radio-label">Work experience</label>
 
-                -->
+                            <div class="collapsible-content">
+                                <ul class="content-inner timeline u-margin-top-sm u-margin-bottom-md">
+                                    <li class="timeline__event">
+                                        <div class="timeline__event-date">December<br>2019</div>
+                                        <h3 class="timeline__event-name">Graduation | Rutgers University</h3>
+                                        <p class="timeline__event-description">B.S. Aerospace Engineering</p>
+                                    
+                                    </li>
+                                    <li class="timeline__event">
+                                        <div class="timeline__event-date">Summer<br>2019</div>
+                                        <h3 class="timeline__event-name">SpaceX</h3>
+                                        <p class="timeline__event-description">Build Reliability Intern</p>
+                                    
+                                    </li>
+                                    <li class="timeline__event">
+                                        <div class="timeline__event-date">Summer<br>2018</div>
+                                        <h3 class="timeline__event-name">Northrop Grumman</h3>
+                                        <p class="timeline__event-description">Software Engineering Intern</p>
+                                    
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form__group">
+                            <input type="radio" name="radio" id="skills" class="form__radio-input">
+                            <label for="skills" class="form__radio-label">Skills</label>
+
+                            <div class="collapsible-content">
+                                <div class="content-inner u-margin-top-sm u-margin-bottom-md">
+                                    <ul class="skills__list">
+                                        <li class="skills__item">Java</li>
+                                        <li class="skills__item">JavaScript</li>
+                                        <li class="skills__item">Python</li>
+                                        <li class="skills__item">HTML/CSS/Sass</li>
+                                        <li class="skills__item">SQL</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+               </div>
                 
             </section>
 
-            <section class="section-projects">
+            <section class="section" id="projects">
                 <h3 class="section-heading">Projects</h3>
-                <div class="section-projects__project-container">
-
+                <div class="section__container">
+                    <div class="projects">
+                        <div class="project-card"></div>
+                    </div>  
                 </div>
             </section>
-            <section class="section-contact">
+
+            <section class="section" id="contact">
                 <h3 class="section-heading">Contact me</h3>
-                <div class="section-contact__info">
-                    <p>For a copy of my resume, contact me through any of the methods below:</p>
+                <div class="section__container">
+                    <p class="contact-text">For a copy of my resume, email me at <u>jontumalle@gmail.com</u></p>
                 </div>
             </section>
         </main>

@@ -1,0 +1,68 @@
+.form {
+    height: auto;
+
+    // A
+
+    // Hide radio
+    &__radio-input {
+        display: none; 
+    }
+
+    // Header for each tile (About me, Work Exp, + Skills)
+    &__radio-label {
+        display: inline-block;
+        font-family: "Fira Code", monospace;
+        font-size: 3rem;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.151);
+        transition: color 0.25s ease-in-out;
+    }
+
+    // Light Initially Off
+    &__radio-label::before {
+        content: ' ';
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 2rem;
+
+        height: 3rem;
+        width: 2rem;
+        border-radius: 15%;
+
+        background-color: hsla(189, 5%, 50%, 0.534);
+
+        transition: all .25s ease-in-out;
+    }
+
+    // Collapsible wrapper (NOTE: PROBABLY SHOULD BE MODULAR)
+    .collapsible-content {
+        max-height: 0px;
+        overflow: hidden;
+
+        transition: max-height .75s ease-in-out;
+    }
+
+    // Wrapper for content within collapsible
+    .content-inner {
+        font-family: "Montserrat", sans-serif;
+    }
+
+
+    // When Radio is clicked
+    &__radio-input:checked + &__radio-label {
+        color: var(--color-white);
+    }
+
+    &__radio-input:checked + &__radio-label::before {
+        background-color: hsl(192, 100%, 98%);
+        box-shadow:
+            0 0 1rem #fff,
+            0 .5rem 1rem rgba(#000, 0.20);
+    }
+
+    &__radio-input:checked + &__radio-label + .collapsible-content {
+        max-height: 30vh;
+    }
+
+    
+}
